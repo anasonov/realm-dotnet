@@ -28,7 +28,11 @@ using System.Runtime.InteropServices;
 
 namespace Realms
 {
-    internal abstract class RealmCollectionBase<T> : RealmCollectionNativeHelper.Interface, IRealmCollection<T>, INotifyCollectionChanged, INotifyPropertyChanged
+    internal abstract class RealmCollectionBase<T> 
+        : RealmCollectionNativeHelper.Interface, 
+          IRealmCollection<T>, 
+          INotifyCollectionChanged, 
+          INotifyPropertyChanged
     {
         private readonly List<NotificationCallbackDelegate<T>> _callbacks = new List<NotificationCallbackDelegate<T>>();
 
@@ -84,8 +88,6 @@ namespace Realms
                 return Handle.Value.Count();
             }
         }
-
-        public Schema.ObjectSchema ObjectSchema => TargetMetadata.Schema;
 
         protected readonly Realm Realm;
         protected readonly Lazy<CollectionHandleBase> Handle;

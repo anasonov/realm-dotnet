@@ -110,12 +110,6 @@ namespace Realms
     public interface IRealmCollection<out T> : IReadOnlyList<T>, INotifyCollectionChanged, INotifyPropertyChanged
     {
         /// <summary>
-        /// Gets the <see cref="ObjectSchema"/> of the contained objects.
-        /// </summary>
-        /// <value>The ObjectSchema of the contained objects.</value>
-        ObjectSchema ObjectSchema { get; }
-
-        /// <summary>
         /// Register a callback to be invoked each time this <see cref="IRealmCollection{T}"/> changes.
         /// </summary>
         /// <remarks>
